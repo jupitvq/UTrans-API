@@ -1,4 +1,5 @@
 ﻿namespace Utrans_API.Models
+
 {
     public class Brands
     {

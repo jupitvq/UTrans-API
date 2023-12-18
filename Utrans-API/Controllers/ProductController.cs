@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore;
 using Utrans_API.DBContexts;
 using Utrans_API.Models;
-using Utrans_API.Repository;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -26,6 +24,7 @@ namespace Utrans_API.Controllers
         }
 
         // GET: api/<ProductsController>
+        // api/Product
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Products>>> GetProducts()
         {
@@ -33,6 +32,7 @@ namespace Utrans_API.Controllers
         }
 
         // GET api/<ProductsController>/5
+        // api/Product/[ID]
         [HttpGet("{id}")]
         public async Task<ActionResult<Products>> GetProducts(int id)
         {
@@ -48,6 +48,7 @@ namespace Utrans_API.Controllers
         }
 
         // POST api/<ProductsController>
+        // POST api/Product
         [HttpPost]
         public async Task<ActionResult<Products>> PostProducts(Products Product)
         {
@@ -72,6 +73,7 @@ namespace Utrans_API.Controllers
         }
 
         // PUT api/<ProductsController>/5
+        // api/Product/[ID]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateProduct(int id, Products Product)
         {
@@ -102,6 +104,7 @@ namespace Utrans_API.Controllers
         }
 
         // DELETE api/<ProductsController>/5
+        // api/Product/[ID]
         [HttpDelete("{id}")]
         public async Task<ActionResult<Products>> DeleteProduct(int id)
         {

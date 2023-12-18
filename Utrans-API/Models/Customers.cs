@@ -1,6 +1,5 @@
-﻿using System.Security;
+﻿namespace Utrans_API.Models
 
-namespace Utrans_API.Models
 {
     public class Customers
     {

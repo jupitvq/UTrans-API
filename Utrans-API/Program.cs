@@ -1,8 +1,6 @@
-using Microsoft.Extensions.Configuration;
 using Utrans_API.DBContexts;
 using Microsoft.EntityFrameworkCore;
 using Utrans_API.Repository;
-using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 

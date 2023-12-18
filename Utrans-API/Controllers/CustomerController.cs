@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore;
 using Utrans_API.DBContexts;
 using Utrans_API.Models;
-using Utrans_API.Repository;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -26,6 +24,7 @@ namespace Utrans_API.Controllers
         }
 
         // GET: api/<CustomerController>
+        // api/Customer
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Customers>>> GetCustomers()
         {
@@ -33,6 +32,7 @@ namespace Utrans_API.Controllers
         }
 
         // GET api/<CustomerController>/5
+        // api/Customer/[ID]
         [HttpGet("{id}")]
         public async Task<ActionResult<Customers>> GetCustomers(int id)
         {
@@ -47,6 +47,7 @@ namespace Utrans_API.Controllers
         }
 
         // POST api/<CustomerController>
+        // api/Customer
         [HttpPost]
         public async Task<ActionResult<Customers>> PostCustomers(Customers Customer)
         {
@@ -71,6 +72,7 @@ namespace Utrans_API.Controllers
         }
 
         // PUT api/<CustomerController>/5
+        // api/Customer/[ID]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateCustomer(int id, Customers Customer)
         {
@@ -101,6 +103,7 @@ namespace Utrans_API.Controllers
         }
 
         // DELETE api/<CustomerController>/5
+        // api/Customer/[ID]
         [HttpDelete("{id}")]
         public async Task<ActionResult<Customers>> DeleteCustomer(int id)
         {

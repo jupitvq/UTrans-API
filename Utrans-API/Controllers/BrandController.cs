@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore;
 using Utrans_API.DBContexts;
 using Utrans_API.Models;
-using Utrans_API.Repository;
+
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Utrans_API.Controllers
@@ -25,6 +24,7 @@ namespace Utrans_API.Controllers
         }
 
         // GET: api/<BrandController>
+        // /api/Brand
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Brands>>> GetBrands()
         {   
@@ -33,6 +33,7 @@ namespace Utrans_API.Controllers
         }
 
         // GET api/<BrandController>/5
+        // api/Brand/[ID]
         [HttpGet("{id}")]
         public async Task<ActionResult<Brands>> GetBrands(int id)
         {   
@@ -48,6 +49,7 @@ namespace Utrans_API.Controllers
         }
 
         // POST api/<BrandController>
+        // api/Brand
         [HttpPost]
         public async Task<ActionResult<Brands>> PostBrands(Brands Brand)
         {
@@ -70,6 +72,7 @@ namespace Utrans_API.Controllers
         }   
 
         // PUT api/<BrandController>/5
+        // api/Brand/[ID]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateBrand(int id, Brands Brand)
         {
@@ -98,6 +101,7 @@ namespace Utrans_API.Controllers
         }
 
         // DELETE api/<BrandController>/5
+        // api/Brand/[ID]
         [HttpDelete("{id}")]
         public async Task<ActionResult<Brands>> DeleteBrand(int id)
         {
