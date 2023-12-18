@@ -18,6 +18,10 @@ var connectionString = "server=localhost;user=root;password=;database=utrans";
 
 //builder.Services.AddDbContext<BrandContext>(options => options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+builder.Services.Add(new ServiceDescriptor(typeof(CustomerContext), new CustomerContext()));
+builder.Services.AddDbContext<CustomerContext>(options => options.UseMySql(connectionString, serverVersion));
+
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.Add(new ServiceDescriptor(typeof(ProductContext), new ProductContext()));
 builder.Services.AddDbContext<ProductContext>(options => options.UseMySql(connectionString, serverVersion));
