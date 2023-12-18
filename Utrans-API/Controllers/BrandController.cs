@@ -99,7 +99,7 @@ namespace Utrans_API.Controllers
 
         // DELETE api/<BrandController>/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Brands>> Delete(int id)
+        public async Task<ActionResult<Brands>> DeleteBrand(int id)
         {
             var Brand = await _context.Brands.FindAsync(id);
             if (Brand == null)
