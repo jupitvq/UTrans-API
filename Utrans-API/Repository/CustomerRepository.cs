@@ -12,18 +12,22 @@ namespace Utrans_API.Repository
         {
             throw new NotImplementedException();
         }
+
         public Customers GetCustomerByID(int customerId)
         {
             throw new NotImplementedException();
         }
+
         public IEnumerable<Customers> GetCustomers()
         {
             throw new NotImplementedException();
         }
+
         public void InsertCustomer(Customers customer)
         {
             throw new NotImplementedException();
         }
+
         public void UpdateCustomer(Customers customer)
         {
             throw new NotImplementedException();

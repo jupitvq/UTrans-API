@@ -3,18 +3,20 @@ using Utrans_API.Models;
 
 namespace Utrans_API.DBContexts
 {
-    public partial class CustomerContext : DbContext
+    public partial class VendorContext : DbContext
     {
-        public CustomerContext()
+        public VendorContext()
         {
 
         }
 
-        public CustomerContext(DbContextOptions<CustomerContext> options) : base(options)
+        public VendorContext(DbContextOptions<VendorContext> options) : base(options)
         {
 
         }
-        public virtual DbSet<Customers> Customers { get; set; }
+
+        public virtual DbSet<Vendors> Vendors { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -27,9 +29,9 @@ namespace Utrans_API.DBContexts
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Customers>(entity =>
+            modelBuilder.Entity<Vendors>(entity =>
             {
-                entity.ToTable("customers").HasKey(k => k.id);
+                entity.ToTable("vendors").HasKey(k => k.id);
 
                 entity.Property(e => e.Code).IsRequired();
 

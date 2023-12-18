@@ -6,31 +6,31 @@ using System.Threading.Tasks;
 
 namespace Utrans_API.Repository
 {
-    public class BrandRepository : IBrandRepository
+    public class VendorRepository : IVendorRepository
     {
-        public void DeleteBrand(int id)
+        public void DeleteVendor(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Brands GetBrandByID(int brandId)
+        public Vendors GetVendorByID(int vendorId)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Brands> GetBrands()
+        public IEnumerable<Vendors> GetVendors()
         {
             throw new NotImplementedException();
         }
 
-        public void InsertBrand(Brands brand)
+        public void InsertVendor(Vendors vendor)
         {
             throw new NotImplementedException();
         }
 
-        public void UpdateBrand(Brands brand)
+        public void UpdateVendor(Vendors vendor)
         {
             throw new NotImplementedException();
         }
-    }
+    }   
 }

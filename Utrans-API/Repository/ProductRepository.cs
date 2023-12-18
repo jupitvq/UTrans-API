@@ -12,18 +12,22 @@ namespace Utrans_API.Repository
         {
             throw new NotImplementedException();
         }
+
         public Products GetProductByID(int productId)
         {
             throw new NotImplementedException();
         }
+
         public IEnumerable<Products> GetProducts()
         {
             throw new NotImplementedException();
         }
+
         public void InsertProduct(Products product)
         {
             throw new NotImplementedException();
         }
+
         public void UpdateProduct(Products product)
         {
             throw new NotImplementedException();
