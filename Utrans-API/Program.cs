@@ -14,9 +14,11 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var serverVersion = new MySqlServerVersion(new Version(8, 0, 34));
-var connectionString = "server=localhost;user=root;password=****;database=utrans";
+var connectionString = "server=localhost;user=root;password=;database=utrans";
 
 //builder.Services.AddDbContext<BrandContext>(options => options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddScoped<IBrandRepository, BrandRepository>();
 builder.Services.Add(new ServiceDescriptor(typeof(BrandContext), new BrandContext()));
 builder.Services.AddDbContext<BrandContext>(options => options.UseMySql(connectionString, serverVersion));
 
