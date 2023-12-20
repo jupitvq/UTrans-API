@@ -40,9 +40,7 @@ namespace Utrans_API.DBContexts
 
                 entity.Property(e => e.stock).IsRequired();
 
-                entity.Property(e => e.retail_price).IsRequired();
-
-                entity.Property(e => e.whole_sale_price).IsRequired();
+                entity.Property(e => e.sales_price).IsRequired();
 
                 entity.Property(e => e.standard_price).IsRequired();
             });

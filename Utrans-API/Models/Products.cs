@@ -9,8 +9,7 @@
         public string Name { get; set; }
         public string Description { get; set; }
         public decimal? stock { get; set; }
-        public decimal? retail_price { get; set; }
-        public decimal? whole_sale_price { get; set; }
+        public decimal? sales_price { get; set; }
         public decimal? standard_price { get; set; }
         public DateTime? Created_at { get; set; }
         public DateTime? Updated_at { get; set; }
