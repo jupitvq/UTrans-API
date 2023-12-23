@@ -28,8 +28,7 @@ namespace Utrans_API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Brands>>> GetBrands()
         {   
-            return await _context.Brands.ToListAsync();
-            //return new string[] { "value1", "value2" };
+            return _context.Brands.Where(b => b.Deleted_at == null).ToList();
         }
 
         // GET api/<BrandController>/5
@@ -37,7 +36,7 @@ namespace Utrans_API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Brands>> GetBrands(int id)
         {   
-            var Brand = await _context.Brands.FindAsync(id);
+            var Brand = await _context.Brands.Where(b => b.Deleted_at == null).FirstOrDefaultAsync(b => b.id == id); ;
 
             if (Brand == null)
             {
@@ -53,19 +52,26 @@ namespace Utrans_API.Controllers
         [HttpPost]
         public async Task<ActionResult<Brands>> PostBrands(Brands Brand)
         {
-            _context.Brands.Add(Brand);
+            var brand = new Brands
+            {
+                Code = Brand.Code,
+                Name = Brand.Name,
+                Number = Brand.Number,
+                Email = Brand.Email,
+                Website = Brand.Website,
+                Created_at = DateTime.Now,
+                Updated_at = DateTime.Now
+            };
+
+            await _context.Brands.AddAsync(brand);
+
             try
             {
                 await _context.SaveChangesAsync();
             } catch (DbUpdateException)
             {
-                if (BrandExists(Brand.id))
-                {
-                    return Conflict();
-                } else
-                {
-                    throw;
-                }
+                _context.Entry(brand).State = EntityState.Detached;
+                throw;
             }
 
             return CreatedAtAction(nameof(GetBrands), new { id = Brand.id }, Brand);
@@ -76,12 +82,18 @@ namespace Utrans_API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateBrand(int id, Brands Brand)
         {
-            if (id != Brand.id)
+           var existingBrand = await _context.Brands.FindAsync(id);
+
+            if (existingBrand == null)
             {
-                return BadRequest();
+                return NotFound();
             }
 
-            _context.Entry(Brand).State = EntityState.Modified;
+            existingBrand.Name = Brand.Name;
+            existingBrand.Number = Brand.Number;
+            existingBrand.Email = Brand.Email;
+            existingBrand.Website = Brand.Website;
+            existingBrand.Updated_at = DateTime.Now;
 
             try
             {
@@ -93,11 +105,12 @@ namespace Utrans_API.Controllers
                     return NotFound();
                 } else
                 {
+                    _context.Entry(existingBrand).State = EntityState.Detached;
                     throw;
                 }
             }
 
-            return NoContent();
+            return Ok(new { message = "Brand updated" });
         }
 
         // DELETE api/<BrandController>/5
@@ -105,16 +118,32 @@ namespace Utrans_API.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<Brands>> DeleteBrand(int id)
         {
-            var Brand = await _context.Brands.FindAsync(id);
-            if (Brand == null)
+            var existingBrand = await _context.Brands.FindAsync(id);
+
+            if (existingBrand == null)
             {
                 return NotFound();
             }
 
-            _context.Brands.Remove(Brand);
-            await _context.SaveChangesAsync();
+            existingBrand.Deleted_at = DateTime.Now;
 
-            return Brand;   
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!BrandExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return Ok(new { message = "Brand deleted" });
         }
     }
 }
