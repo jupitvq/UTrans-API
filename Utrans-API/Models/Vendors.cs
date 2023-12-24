@@ -6,7 +6,6 @@ namespace Utrans_API.Models
 {
     public class Vendors
     {
-        [JsonIgnore]
         public int id { get; set; }
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public string? Code { get; set; }

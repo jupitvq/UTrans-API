@@ -6,7 +6,6 @@ namespace Utrans_API.Models
 {
     public class Products
     {
-        [JsonIgnore]
         public int id { get; set; }
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Brand_id { get; set; }
