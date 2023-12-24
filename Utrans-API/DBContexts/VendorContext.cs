@@ -37,15 +37,15 @@ namespace Utrans_API.DBContexts
 
                 entity.Property(e => e.Name).IsRequired();
 
-                entity.Property(e => e.Address).IsRequired();
+                entity.Property(e => e.Address);
 
-                entity.Property(e => e.District).IsRequired();
+                entity.Property(e => e.District);
 
-                entity.Property(e => e.City).IsRequired();
+                entity.Property(e => e.City);
 
-                entity.Property(e => e.Phone).IsRequired();
+                entity.Property(e => e.Phone);
 
-                entity.Property(e => e.Email).IsRequired();
+                entity.Property(e => e.Email);
             });
         }
     }

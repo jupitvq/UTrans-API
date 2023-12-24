@@ -36,7 +36,7 @@ namespace Utrans_API.DBContexts
 
                 entity.Property(e => e.Name).IsRequired();
 
-                entity.Property(e => e.Description).IsRequired();
+                entity.Property(e => e.Description);
 
                 entity.Property(e => e.stock).IsRequired();
 
