@@ -33,6 +33,7 @@ namespace Utrans_API.Controllers
 
         // GET api/<BrandController>/5
         // api/Brand/[ID]
+        // hash
         [HttpGet("{id}")]
         public async Task<ActionResult<Brands>> GetBrands(int id)
         {   
