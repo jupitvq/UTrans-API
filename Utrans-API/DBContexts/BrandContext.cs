@@ -32,7 +32,7 @@ namespace Utrans_API.DBContexts
             {
                 entity.ToTable("brands").HasKey(k => k.id);
 
-                //entity.Property(e => e.Code).IsRequired();
+                entity.Property(e => e.Code).IsRequired();
 
                 entity.Property(e => e.Name).IsRequired();
 
