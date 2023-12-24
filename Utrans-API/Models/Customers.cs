@@ -6,7 +6,6 @@ namespace Utrans_API.Models
 {
     public class Customers
     {
-        [JsonIgnore]
         public int id { get; set; }
         public string? Code { get; set; }
         public string Name { get; set; }
