@@ -23,6 +23,14 @@ After solution file has been opened, head over to **Manage NuGet Package** and i
 - Pomelo.Entity.EntityFrameworkCore (7.0.0)
 - Swashbuckle.AspNetCore (6.5.0)
 
+Be aware that Utrans main database must be imported to MySQL so that the API running as intended.
+
+- DB Name: `utrans`
+- Hostname: `localhost`
+- Port: `3306`
+- Username: `root`
+- Password:‎ ‎ ` ` ‎ ‎ (none)
+
 Once everything is ready, you may deploy the solution **by running with IIS Express**. Please note that MySQL service has to be running before running the API system.
 ## API Reference
 
