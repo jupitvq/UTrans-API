@@ -6,6 +6,7 @@ namespace Utrans_API.Models
 {
     public class Vendors
     {
+        [JsonIgnore]
         public int id { get; set; }
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public string? Code { get; set; }
@@ -15,8 +16,11 @@ namespace Utrans_API.Models
         public string? City { get; set; }
         public string? Phone { get; set; }
         public string? Email { get; set; }
+        [JsonIgnore]
         public DateTime? Created_at { get; set; }
+        [JsonIgnore]
         public DateTime? Updated_at { get; set; }
+        [JsonIgnore]
         public DateTime? Deleted_at { get; set; }
     }
 }

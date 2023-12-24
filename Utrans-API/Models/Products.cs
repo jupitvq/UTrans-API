@@ -6,6 +6,7 @@ namespace Utrans_API.Models
 {
     public class Products
     {
+        [JsonIgnore]
         public int id { get; set; }
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Brand_id { get; set; }
@@ -15,8 +16,11 @@ namespace Utrans_API.Models
         public decimal stock { get; set; }
         public decimal sales_price { get; set; }
         public decimal standard_price { get; set; }
+        [JsonIgnore]
         public DateTime? Created_at { get; set; }
+        [JsonIgnore]
         public DateTime? Updated_at { get; set; }
+        [JsonIgnore]
         public DateTime? Deleted_at { get; set; }
     }
 }

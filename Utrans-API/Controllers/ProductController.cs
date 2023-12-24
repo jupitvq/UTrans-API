@@ -63,9 +63,9 @@ namespace Utrans_API.Controllers
                 stock = Product.stock,
                 sales_price = Product.sales_price,
                 standard_price = Product.standard_price,
-                Created_at = Product.Created_at,
-                Updated_at = Product.Updated_at,
-                Deleted_at = Product.Deleted_at
+                Created_at = DateTime.Now,
+                Updated_at = DateTime.Now,
+                Deleted_at = null
             };
 
             await _context.Products.AddAsync(product);
@@ -77,7 +77,7 @@ namespace Utrans_API.Controllers
             catch (DbUpdateException)
             {
                 {   
-                    _context.Entry(product).State = EntityState.Modified;
+                    _context.Entry(product).State = EntityState.Detached;
                     throw;
                 }
             }
@@ -123,7 +123,7 @@ namespace Utrans_API.Controllers
                 }
                 else
                 {   
-                    _context.Entry(Product).State = EntityState.Modified;
+                    _context.Entry(Product).State = EntityState.Detached;
                     throw;
                 }
             }
