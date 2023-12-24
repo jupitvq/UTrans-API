@@ -8,7 +8,7 @@ namespace Utrans_API.Models
     {
         public int id { get; set; }
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int Brand_id { get; set; }
+        public int brand_id { get; set; }
         public string? Code { get; set; }
         public string Name { get; set; }
         public string? Description { get; set; }
