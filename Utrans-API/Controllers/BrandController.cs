@@ -82,11 +82,16 @@ namespace Utrans_API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateBrand(int id, Brands Brand)
         {
-           var existingBrand = await _context.Brands.FindAsync(id);
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var existingBrand = await _context.Brands.FindAsync(id);
 
             if (existingBrand == null)
             {
-                return NotFound();
+                return NotFound($"Brand with ID {id} not found");
             }
 
             existingBrand.Name = Brand.Name;
@@ -98,12 +103,14 @@ namespace Utrans_API.Controllers
             try
             {
                 await _context.SaveChangesAsync();
-            } catch (DbUpdateConcurrencyException)
+            }
+            catch (DbUpdateConcurrencyException)
             {
                 if (!BrandExists(id))
                 {
-                    return NotFound();
-                } else
+                    return NotFound($"Brand with ID {id} not found");
+                }
+                else
                 {
                     _context.Entry(existingBrand).State = EntityState.Detached;
                     throw;
