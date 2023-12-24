@@ -1,6 +1,7 @@
 using Utrans_API.DBContexts;
 using Microsoft.EntityFrameworkCore;
 using Utrans_API.Repository;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +10,20 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen( options =>
+    {
+        options.SwaggerDoc("v1", new OpenApiInfo
+        {
+            Version = "v1",
+            Title = "Utrans API",
+            Description = "API Service for Utrans ERP system for fetching Products, Customers, Vendors and Brands.",
+            Contact = new OpenApiContact
+            {
+                Name = "Utrans GitHub",
+                Url = new Uri("https://github.com/Vincentalun12/Utrans")
+            },
+        });
+    });
 
 var serverVersion = new MySqlServerVersion(new Version(8, 0, 34));
 var connectionString = "server=localhost;user=root;password=;database=utrans";
