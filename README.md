@@ -95,7 +95,7 @@ Every data deletion is on **soft-delete state.** It'll still appear on the datab
 
 - [@jupitvq](https://github.com/jupitvq) - Jupiter - [API Programmer]
 - [@Hernando17](https://github.com/Hernando17) - Hernando - [API Programmer & Website Implementator]
-- [@Vincentalun12](https://github.com/Vincentalun12) - Vincent [Frontend Website Designer]
+- [@Vincentalun12](https://github.com/Vincentalun12) - Vincent [Hardcore Frontend Designer]
 - Jonathan
 - Evelyne
 
