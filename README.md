@@ -4,6 +4,8 @@ API Service for [Utrans ERP system](https://github.com/Vincentalun12/utrans) for
 
 This API service intended to fetch large amount of data from database that won't optimized well with normal approach.
 
+*You may disable API services on Utrans system manually so that the system will operate in legacy way (PHP Controller Method)*
+
 ## Deployment
 
 In order to get started, **.NET 8.0** and **Visual Studio 2022** with basic ASP.NET packages has to be installed to run this API system.
